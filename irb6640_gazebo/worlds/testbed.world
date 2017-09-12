@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="testbed">
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+<!--
+    <model name="testbed">
+      <pose>0 0 0 0 0 0</pose>
+      <static>true</static>
+      <link name="testbed">
+        <visual name="visual">
+          <pose>0 0 0 1.5708 0 0</pose>
+          <geometry>
+            <mesh><uri>model://irb6640_gazebo/models/vacuum_gripper.STL</uri></mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+-->
+<!--    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>4.927360 -4.376610 3.740080 0.000000 0.275643 2.356190</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui> -->
+  </world>
+</sdf>

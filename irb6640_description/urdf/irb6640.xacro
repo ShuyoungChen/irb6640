@@ -1,0 +1,425 @@
+<?xml version="1.0" ?>
+<robot name="irb6640" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:property name="camera_link" value="0.05" /> <!-- Size of square 'camera' box -->
+
+  <!-- Import all Gazebo-customization elements, including Gazebo colors -->
+  <xacro:include filename="$(find irb6640_description)/urdf/irb6640.gazebo" />
+  <xacro:include filename="$(find abb_resources)/urdf/common_materials.xacro"/>
+     
+    <!-- Used for fixing robot to Gazebo ground -->
+    <link name="world"/>
+
+    <joint name="fixed" type="fixed">
+      <parent link="world"/>
+      <child link="base_link"/>
+    </joint>
+
+    <!-- link list -->
+    <link name="base_link">
+      <collision name="collision">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://irb6640_description/meshes/collision/base_link.stl"/>
+        </geometry>
+        <xacro:material_abb_yellow />
+      </collision>
+
+      <visual name="visual">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://irb6640_description/meshes/visual/base_link.dae"/>
+        </geometry>
+        <xacro:material_abb_orange />
+      </visual>
+      
+      <inertial>
+        <mass value="1111.718"/>
+        <origin rpy="0 0 0" xyz="-0.122794 -0.003811 0.110153"/>
+        <inertia ixx="45.162" ixy="0.7878" ixz="2.4414" iyy="82.5006" iyz="-0.2418" izz="118.0686"/>
+      </inertial>
+    </link>
+
+    <link name="link_1">
+      <collision name="collision">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+        <mesh filename="package://irb6640_description/meshes/collision/link_1.stl"/>
+        </geometry>
+        <xacro:material_abb_yellow />
+      </collision>
+
+      <visual name="visual">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+        <mesh filename="package://irb6640_description/meshes/visual/link_1.dae"/>
+        </geometry>
+        <xacro:material_abb_orange />
+      </visual>
+    
+      <inertial>
+        <mass value="2205.122"/>
+        <origin rpy="0 0 0" xyz="0.067258 -0.014457 0.371929"/>
+        <inertia ixx="142.7244" ixy="-35.724" ixz="-29.6868" iyy="189.2124" iyz="-9.8592" izz="186.0066"/>
+      </inertial>
+    </link>
+
+    <link name="link_2">
+      <collision name="collision">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+        <mesh filename="package://irb6640_description/meshes/collision/link_2.stl"/>
+        </geometry>
+        <xacro:material_abb_yellow />
+      </collision>
+
+      <visual name="visual">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+        <mesh filename="package://irb6640_description/meshes/visual/link_2.dae"/>
+        </geometry>
+        <xacro:material_abb_orange />
+      </visual>
+
+      <inertial>
+        <mass value="1372.153"/>
+        <origin rpy="0 0 0" xyz="-0.000031 -0.234647 0.466705"/>
+        <inertia ixx="193.4088" ixy="0.78" ixz="-1.6224" iyy="197.379" iyz="21.7542" izz="33.4308"/>
+      </inertial>
+    </link>
+
+    <link name="link_3">
+      <collision name="collision">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+        <mesh filename="package://irb6640_description/meshes/collision/link_3.stl"/>
+        </geometry>
+        <xacro:material_abb_yellow />
+      </collision>
+
+      <visual name="visual">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+        <mesh filename="package://irb6640_description/meshes/visual/link_3.dae"/>
+        </geometry>
+        <xacro:material_abb_orange />
+      </visual>
+
+      <inertial>
+        <mass value="748.457"/>
+        <origin rpy="0 0 0" xyz="-0.030083 0.210741 0.124906"/>
+        <inertia ixx="26.4888" ixy="2.6598" ixz="2.262" iyy="25.4046" iyz="-3.5256" izz="27.5652"/>
+      </inertial>
+    </link>
+
+    <link name="link_4">
+      <collision name="collision">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+        <mesh filename="package://irb6640_description/meshes/collision/link_4.stl"/>
+        </geometry>
+        <xacro:material_abb_yellow />
+      </collision>
+
+      <visual name="visual">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+        <mesh filename="package://irb6640_description/meshes/visual/link_4.dae"/>
+        </geometry>
+        <xacro:material_abb_orange />
+      </visual>
+
+      <inertial>
+        <mass value="760.937"/>
+        <origin rpy="0 0 0" xyz="1.063818 -0.003935 0.000293"/>
+        <inertia ixx="7.9014" ixy="1.5678" ixz="0" iyy="171.8418" iyz="0.0078" izz="173.901"/>
+      </inertial>
+    </link>
+
+    <link name="link_5">
+      <collision name="collision">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+        <mesh filename="package://irb6640_description/meshes/collision/link_5.stl"/>
+        </geometry>
+        <xacro:material_abb_yellow />
+      </collision>
+
+      <visual name="visual">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+        <mesh filename="package://irb6640_description/meshes/visual/link_5.dae"/>
+        </geometry>
+        <xacro:material_abb_orange />
+      </visual>
+
+      <inertial>
+        <mass value="62.634"/>
+        <origin rpy="0 0 0" xyz="0.034791 0.000731 0.000008"/>
+        <inertia ixx="0.2808" ixy="0.0078" ixz="0" iyy="0.5304" iyz="0" izz="0.546"/>
+      </inertial>
+    </link>
+
+    <link name="link_6">
+      <collision name="collision">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+        <mesh filename="package://irb6640_description/meshes/collision/link_6.stl"/>
+        </geometry>
+        <xacro:material_abb_yellow />
+      </collision>
+
+      <visual name="visual">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+        <mesh filename="package://irb6640_description/meshes/visual/link_6.dae"/>
+        </geometry>
+        <xacro:material_abb_black />
+      </visual>
+
+      <inertial>
+        <mass value="8.549"/>
+        <origin rpy="0 0 0" xyz="0.019851 -0.000031 0.001144"/>
+        <inertia ixx="0.039" ixy="0" ixz="0" iyy="0.0234" iyz="0" izz="0.0234"/>
+      </inertial>
+    </link>
+
+    <link name="tool0"/>
+    <link name="camera_link_optical"/>
+
+    <!--Cylinder and piston -->
+    <link name="link_cylinder">
+      <collision name="collision">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+        <mesh filename="package://irb6640_description/meshes/collision/cylinder_link.stl"/>
+        </geometry>
+        <xacro:material_abb_yellow />
+      </collision>
+
+      <visual name="visual">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+        <mesh filename="package://irb6640_description/meshes/visual/cylinder_link.dae"/>
+        </geometry>
+        <xacro:material_abb_orange />
+      </visual>
+
+      <inertial>
+        <mass value="476.050"/>
+        <origin rpy="0 0 0" xyz="0.095143 -0.005271 0.012347"/>
+        <inertia ixx="8.3694" ixy="-0.0546" ixz="0.0078" iyy="16.458" iyz="-0.0078" izz="15.678"/>
+      </inertial>
+    </link>
+
+    <link name="link_piston">
+      <collision name="collision">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+        <mesh filename="package://irb6640_description/meshes/collision/piston_link.stl"/>
+        </geometry>
+        <xacro:material_abb_yellow />
+      </collision>
+
+      <visual name="visual">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+        <mesh filename="package://irb6640_description/meshes/visual/piston_link.dae"/>
+        </geometry>
+        <xacro:material_abb_orange />
+      </visual>
+
+      <inertial>
+        <mass value="20.865"/>
+        <origin rpy="0 0 0" xyz="-0.234433 -0.193996 -0.039472"/>
+        <inertia ixx="0.0312" ixy="0" ixz="-0.1014" iyy="0.6474" iyz="0" izz="0.6318"/>
+      </inertial>
+    </link>
+
+    <!-- Camera -->
+    <link name="camera_link">
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+	  <box size="${camera_link} ${camera_link} ${camera_link}"/>
+        </geometry>
+      </collision>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+	<box size="${camera_link} ${camera_link} ${camera_link}"/>
+        </geometry>
+        <material name="red"/>
+      </visual>
+
+      <inertial>
+        <mass value="1e-5" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+      </inertial>
+    </link>
+    <!-- end of link list -->
+
+    <!-- joint list -->
+    <joint name="joint_1" type="revolute">
+      <origin rpy="0 0 0" xyz="0 0 0.780"/>
+      <axis xyz="0 0 1"/>
+      <parent link="base_link"/>
+      <child link="link_1"/>
+      <limit effort="100" lower="-2.967" upper="2.967" velocity="1.7453"/>
+    </joint>
+
+    <joint name="joint_2" type="revolute">
+      <origin rpy="0 0 0" xyz="0.320 0 0"/>
+      <axis xyz="0 1 0"/>
+      <parent link="link_1"/>
+      <child link="link_2"/>
+      <limit effort="100" lower="-1.134" upper="1.4855" velocity="1.5707"/>
+    </joint>
+
+    <joint name="joint_3" type="revolute">
+      <origin rpy="0 0 0" xyz="0 0 1.075"/>
+      <axis xyz="0 1 0"/>
+      <parent link="link_2"/>
+      <child link="link_3"/>
+      <limit effort="100" lower="-3.142" upper="1.222" velocity="1.5707"/>
+    </joint>
+
+    <joint name="joint_4" type="revolute">
+      <origin rpy="0 0 0" xyz="0 0 0.2"/>
+      <axis xyz="1 0 0"/>
+      <parent link="link_3"/>
+      <child link="link_4"/>
+      <limit effort="100" lower="-5.236" upper="5.236" velocity="2.9671"/>
+    </joint>
+
+    <joint name="joint_5" type="revolute">
+      <origin rpy="0 0 0" xyz="1.392 0 0 "/>
+      <axis xyz="0 1 0"/>
+      <parent link="link_4"/>
+      <child link="link_5"/>
+      <limit effort="100" lower="-2.094" upper="2.094" velocity="2.4435"/>
+    </joint>
+
+    <joint name="joint_6" type="revolute">
+      <origin rpy="0 0 0" xyz="0.2 0 0 "/>
+      <axis xyz="1 0 0"/>
+      <parent link="link_5"/>
+      <child link="link_6"/>
+      <limit effort="100" lower="-6.283" upper="6.283" velocity="3.3161"/>
+   </joint>
+
+   <joint name="joint_6-tool0" type="fixed">
+     <parent link="link_6"/>
+     <child link="tool0"/>
+     <origin rpy="0 1.57079632679 0" xyz="0 0 0"/>
+   </joint>
+
+   <joint name="joint_cylinder" type="continuous">
+     <origin rpy="0 0 0" xyz="-0.3647 0 -0.1455"/>
+     <axis xyz="0 1 0"/>
+     <parent link="link_1"/>
+     <child link="link_cylinder"/>
+     <mimic joint="joint_2" multiplier="-0.25"/>
+   </joint>
+
+   <joint name="joint_piston" type="continuous">
+     <origin rpy="0 0 0" xyz="-0.22 0 -0.0672"/>
+     <axis xyz="0 1 0"/>
+     <parent link="link_2"/>
+     <child link="link_piston"/>
+     <mimic joint="joint_2" multiplier="-1.25"/>
+   </joint>
+
+   <joint name="camera_joint" type="fixed">
+     <axis xyz="0 1 0" />
+     <origin xyz="${camera_link} 0 0" rpy="0 0 0"/>
+     <parent link="link_6"/>
+     <child link="camera_link"/>
+   </joint>
+
+   <joint name="camera_optical_joint" type="fixed">
+     <!-- these values have to be these values otherwise the gazebo camera image
+        won't be aligned properly with the frame it is supposedly originating from -->
+     <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
+     <parent link="camera_link"/>
+     <child link="camera_link_optical"/>
+   </joint>
+   <!-- end of joint list -->
+    
+    <!-- ROS base_link to ABB World Coordinates transform -->
+<!--    <link name="base" />
+    <joint name="base_link-base" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <parent link="base_link"/>
+      <child link="base"/>
+    </joint> -->
+
+   <!-- transmission list -->
+   <transmission name="tran1">
+     <type>transmission_interface/SimpleTransmission</type>
+     <joint name="joint_1">
+       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+     </joint>
+     <actuator name="motor1">
+       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+       <mechanicalReduction>1</mechanicalReduction>
+     </actuator>
+   </transmission>
+
+   <transmission name="tran2">
+     <type>transmission_interface/SimpleTransmission</type>
+     <joint name="joint_2">
+       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+     </joint>
+     <actuator name="motor2">
+       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+       <mechanicalReduction>1</mechanicalReduction>
+     </actuator>
+   </transmission>
+
+   <transmission name="tran3">
+     <type>transmission_interface/SimpleTransmission</type>
+     <joint name="joint_3">
+       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+     </joint>
+     <actuator name="motor3">
+       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+       <mechanicalReduction>1</mechanicalReduction>
+     </actuator>
+   </transmission>
+
+   <transmission name="tran4">
+     <type>transmission_interface/SimpleTransmission</type>
+     <joint name="joint_4">
+       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+     </joint>
+     <actuator name="motor4">
+       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+       <mechanicalReduction>1</mechanicalReduction>
+     </actuator>
+   </transmission>
+
+   <transmission name="tran5">
+     <type>transmission_interface/SimpleTransmission</type>
+     <joint name="joint_5">
+       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+     </joint>
+     <actuator name="motor5">
+       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+       <mechanicalReduction>1</mechanicalReduction>
+     </actuator>
+   </transmission>
+
+   <transmission name="tran6">
+     <type>transmission_interface/SimpleTransmission</type>
+     <joint name="joint_6">
+       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+     </joint>
+     <actuator name="motor6">
+       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+       <mechanicalReduction>1</mechanicalReduction>
+     </actuator>
+   </transmission>
+  <!-- end of transmission list -->
+</robot>

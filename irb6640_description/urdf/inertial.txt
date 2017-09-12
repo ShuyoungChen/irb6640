@@ -1,0 +1,268 @@
+Base_link:
+
+Mesh Bounding Box Size 1.007013 0.772442 0.261141
+Mesh Bounding Box Diag 1.295738 
+Mesh Bounding Box min -0.626999 -0.412442 -0.000126
+Mesh Bounding Box max 0.380014 0.360000 0.261016
+Mesh Surface Area is 1.878876
+Mesh Total Len of 531 Edges is 90.015251 Avg Len 0.169520
+Mesh Total Len of 531 Edges is 90.015251 Avg Len 0.169520 (including faux edges))
+Thin shell (faces) barycenter: -0.118776 -0.005162 0.104006
+Vertices barycenter -0.041124 0.011705 0.112816
+Mesh Volume is 0.142528
+Center of Mass is -0.122794 -0.003811 0.110153
+Inertia Tensor is :
+| 0.005790 0.000101 0.000313 |
+| 0.000101 0.010577 -0.000031 |
+| 0.000313 -0.000031 0.015137 |
+Principal axes are :
+| -0.999211 0.021321 0.033502 |
+| 0.021510 0.999755 0.005284 |
+| -0.033381 0.006001 -0.999425 |
+axis momenta are :
+| 0.005777 0.010579 0.015148 |
+Applied filter Compute Geometric Measures in 66 msec 
+
+link_1:
+
+Opened mesh /home/Shuyang/catkin_ws/src/abb/abb_irb6600_support/meshes/irb6640/collision/link_1.stl in 19 msec
+All files opened in 2374 msec
+Successfully deleted 0 duplicated faces
+Applied filter Remove Duplicate Faces in 6 msec
+OUT OF SCOPE 
+Mesh Bounding Box Size 1.003087 0.877163 0.818767
+Mesh Bounding Box Diag 1.563962 
+Mesh Bounding Box min -0.428795 -0.467185 -0.014982
+Mesh Bounding Box max 0.574292 0.409978 0.803785
+Mesh Surface Area is 2.334111
+Mesh Total Len of 390 Edges is 75.282715 Avg Len 0.193033
+Mesh Total Len of 390 Edges is 75.282715 Avg Len 0.193033 (including faux edges))
+Thin shell (faces) barycenter: 0.064013 -0.021598 0.377786
+Vertices barycenter 0.132407 0.045389 0.379024
+Mesh Volume is 0.282708
+Center of Mass is 0.067258 -0.014457 0.371929
+Inertia Tensor is :
+| 0.018298 -0.004580 -0.003806 |
+| -0.004580 0.024258 -0.001264 |
+| -0.003806 -0.001264 0.023847 |
+Principal axes are :
+| 0.823079 0.422239 0.379810 |
+| 0.130954 0.509642 -0.850362 |
+| -0.552623 0.749653 0.364181 |
+axis momenta are :
+| 0.014192 0.025190 0.027020 |
+Applied filter Compute Geometric Measures in 73 msec 
+
+link_2:
+
+Opened mesh /home/Shuyang/catkin_ws/src/abb/abb_irb6600_support/meshes/irb6640/collision/link_2.stl in 18 msec
+All files opened in 2937 msec
+Successfully deleted 0 duplicated faces
+Applied filter Remove Duplicate Faces in 5 msec
+OUT OF SCOPE 
+Mesh Bounding Box Size 0.528721 0.465000 1.440000
+Mesh Bounding Box Diag 1.602926 
+Mesh Bounding Box min -0.278752 -0.467000 -0.197500
+Mesh Bounding Box max 0.249969 -0.002000 1.242500
+Mesh Surface Area is 1.941855
+Mesh Total Len of 1305 Edges is 177.770447 Avg Len 0.136223
+Mesh Total Len of 1305 Edges is 177.770447 Avg Len 0.136223 (including faux edges))
+Thin shell (faces) barycenter: -0.001769 -0.234111 0.476855
+Vertices barycenter 0.029915 -0.293018 0.572230
+Mesh Volume is 0.175917
+Center of Mass is -0.000031 -0.234647 0.466705
+Inertia Tensor is :
+| 0.024796 0.000100 -0.000208 |
+| 0.000100 0.025305 0.002789 |
+| -0.000208 0.002789 0.004286 |
+Principal axes are :
+| 0.010504 -0.129350 0.991543 |
+| 0.996556 -0.080217 -0.021022 |
+| -0.082257 -0.988349 -0.128062 |
+axis momenta are :
+| 0.003920 0.024792 0.025674 |
+Applied filter Compute Geometric Measures in 56 msec 
+
+link_3:
+
+Opened mesh /home/Shuyang/catkin_ws/src/abb/abb_irb6600_support/meshes/irb6640/collision/link_3.stl in 21 msec
+All files opened in 1145 msec
+Successfully deleted 0 duplicated faces
+Applied filter Remove Duplicate Faces in 6 msec
+OUT OF SCOPE 
+Mesh Bounding Box Size 0.511500 0.572000 0.585517
+Mesh Bounding Box Diag 0.965218 
+Mesh Bounding Box min -0.280750 -0.048000 -0.198258
+Mesh Bounding Box max 0.230750 0.524000 0.387258
+Mesh Surface Area is 1.117662
+Mesh Total Len of 2019 Edges is 126.396843 Avg Len 0.062604
+Mesh Total Len of 2019 Edges is 126.396843 Avg Len 0.062604 (including faux edges))
+Thin shell (faces) barycenter: -0.029222 0.207644 0.121833
+Vertices barycenter -0.046515 0.241704 0.145427
+Mesh Volume is 0.095956
+Center of Mass is -0.030083 0.210741 0.124906
+Inertia Tensor is :
+| 0.003396 0.000341 0.000290 |
+| 0.000341 0.003257 -0.000452 |
+| 0.000290 -0.000452 0.003534 |
+Principal axes are :
+| 0.516201 -0.680730 -0.519753 |
+| 0.848658 0.488307 0.203312 |
+| -0.115399 0.546043 -0.829771 |
+axis momenta are :
+| 0.002654 0.003661 0.003872 |
+Applied filter Compute Geometric Measures in 57 msec 
+
+link_4:
+
+Opened mesh /home/Shuyang/catkin_ws/src/abb/abb_irb6600_support/meshes/irb6640/collision/link_4.stl in 19 msec
+All files opened in 1186 msec
+Successfully deleted 0 duplicated faces
+Applied filter Remove Duplicate Faces in 5 msec
+OUT OF SCOPE 
+Mesh Bounding Box Size 1.802311 0.350025 0.267164
+Mesh Bounding Box Diag 1.855322 
+Mesh Bounding Box min -0.001641 -0.175000 -0.133635
+Mesh Bounding Box max 1.800670 0.175025 0.133529
+Mesh Surface Area is 1.581281
+Mesh Total Len of 966 Edges is 160.074890 Avg Len 0.165709
+Mesh Total Len of 966 Edges is 160.074890 Avg Len 0.165709 (including faux edges))
+Thin shell (faces) barycenter: 1.008857 -0.003995 0.000342
+Vertices barycenter 1.374942 -0.035811 0.004098
+Mesh Volume is 0.097556
+Center of Mass is 1.063818 -0.003935 0.000293
+Inertia Tensor is :
+| 0.001013 0.000201 0.000000 |
+| 0.000201 0.022031 0.000001 |
+| 0.000000 0.000001 0.022295 |
+Principal axes are :
+| -0.999954 0.009563 0.000010 |
+| -0.009563 -0.999946 0.004019 |
+| -0.000049 -0.004019 -0.999992 |
+axis momenta are :
+| 0.001011 0.022033 0.022295 |
+Applied filter Compute Geometric Measures in 60 msec 
+
+link_5:
+
+Opened mesh /home/Shuyang/catkin_ws/src/abb/abb_irb6600_support/meshes/irb6640/collision/link_5.stl in 23 msec
+All files opened in 1607 msec
+Successfully deleted 0 duplicated faces
+Applied filter Remove Duplicate Faces in 7 msec
+OUT OF SCOPE 
+Mesh Bounding Box Size 0.301926 0.192001 0.205000
+Mesh Bounding Box Diag 0.412369 
+Mesh Bounding Box min -0.124963 -0.096000 -0.102500
+Mesh Bounding Box max 0.176963 0.096000 0.102500
+Mesh Surface Area is 0.214448
+Mesh Total Len of 12393 Edges is 84.863190 Avg Len 0.006848
+Mesh Total Len of 12393 Edges is 84.863190 Avg Len 0.006848 (including faux edges))
+Thin shell (faces) barycenter: 0.033484 0.001426 0.000012
+Vertices barycenter -0.101497 -0.005501 0.001273
+Mesh Volume is 0.008030
+Center of Mass is 0.034791 0.000731 0.000008
+Inertia Tensor is :
+| 0.000036 0.000001 0.000000 |
+| 0.000001 0.000068 -0.000000 |
+| 0.000000 -0.000000 0.000070 |
+Principal axes are :
+| -0.999185 0.040367 0.000165 |
+| -0.040367 -0.999184 -0.001660 |
+| -0.000098 0.001666 -0.999999 |
+axis momenta are :
+| 0.000036 0.000068 0.000070 |
+Applied filter Compute Geometric Measures in 57 msec 
+
+link_6:
+
+Opened mesh /home/Shuyang/catkin_ws/src/abb/abb_irb6600_support/meshes/irb6640/collision/link_6.stl in 19 msec
+All files opened in 1142 msec
+Successfully deleted 0 duplicated faces
+Applied filter Remove Duplicate Faces in 5 msec
+OUT OF SCOPE 
+Mesh Bounding Box Size 0.037000 0.200000 0.203479
+Mesh Bounding Box Diag 0.287702 
+Mesh Bounding Box min 0.000500 -0.100000 -0.101739
+Mesh Bounding Box max 0.037500 0.100000 0.101739
+Mesh Surface Area is 0.079872
+Mesh Total Len of 2181 Edges is 28.823814 Avg Len 0.013216
+Mesh Total Len of 2181 Edges is 28.823814 Avg Len 0.013216 (including faux edges))
+Thin shell (faces) barycenter: 0.020598 -0.000029 0.001214
+Vertices barycenter 0.016549 0.000245 -0.010214
+Mesh Volume is 0.001096
+Center of Mass is 0.019851 -0.000031 0.001144
+Inertia Tensor is :
+| 0.000005 -0.000000 0.000000 |
+| -0.000000 0.000003 -0.000000 |
+| 0.000000 -0.000000 0.000003 |
+Principal axes are :
+| -0.000553 0.028386 0.999597 |
+| 0.000042 0.999597 -0.028386 |
+| 1.000000 -0.000027 0.000554 |
+axis momenta are :
+| 0.000003 0.000003 0.000005 |
+Applied filter Compute Geometric Measures in 88 msec 
+ 
+cylinder:
+
+Opened mesh /home/Shuyang/catkin_ws/src/abb/abb_irb6600_support/meshes/irb6640/collision/cylinder.stl in 19 msec
+All files opened in 4006 msec
+Removed 0 duplicated vertices
+Applied filter Remove Duplicate Vertices in 10 msec
+Successfully deleted 0 duplicated faces
+Applied filter Remove Duplicate Faces in 5 msec
+OUT OF SCOPE 
+Mesh Bounding Box Size 0.599489 0.388998 0.472828
+Mesh Bounding Box Diag 0.856898 
+Mesh Bounding Box min -0.186275 -0.194500 -0.186884
+Mesh Bounding Box max 0.413214 0.194499 0.285944
+Mesh Surface Area is 0.843186
+Mesh Total Len of 681 Edges is 64.177330 Avg Len 0.094240
+Mesh Total Len of 681 Edges is 64.177330 Avg Len 0.094240 (including faux edges))
+Thin shell (faces) barycenter: 0.092105 -0.004824 0.013701
+Vertices barycenter 0.136160 -0.008047 -0.026243
+Mesh Volume is 0.061032
+Center of Mass is 0.095143 -0.005271 0.012347
+Inertia Tensor is :
+| 0.001073 -0.000007 0.000001 |
+| -0.000007 0.002110 -0.000001 |
+| 0.000001 -0.000001 0.002010 |
+Principal axes are :
+| -0.999976 -0.006903 0.000782 |
+| 0.000716 0.009558 0.999954 |
+| -0.006911 0.999931 -0.009553 |
+axis momenta are :
+| 0.001073 0.002010 0.002110 |
+Applied filter Compute Geometric Measures in 62 msec 
+
+piston:
+
+Opened mesh /home/Shuyang/catkin_ws/src/irb6640_description/meshes/irb6640_185_280/collision/piston_link.stl in 21 msec
+All files opened in 2951 msec
+Successfully deleted 0 duplicated faces
+Applied filter Remove Duplicate Faces in 6 msec
+OUT OF SCOPE 
+Mesh Bounding Box Size 0.643401 0.101144 0.157039
+Mesh Bounding Box Diag 0.669967 
+Mesh Bounding Box min -0.611943 -0.244572 -0.126786
+Mesh Bounding Box max 0.031458 -0.143428 0.030254
+Mesh Surface Area is 0.158866
+Mesh Total Len of 993 Edges is 49.319889 Avg Len 0.049668
+Mesh Total Len of 993 Edges is 49.319889 Avg Len 0.049668 (including faux edges))
+Thin shell (faces) barycenter: -0.252084 -0.193998 -0.042445
+Vertices barycenter -0.202486 -0.195341 -0.034437
+Mesh Volume is 0.002675
+Center of Mass is -0.234433 -0.193996 -0.039472
+Inertia Tensor is :
+| 0.000004 0.000000 -0.000013 |
+| 0.000000 0.000083 0.000000 |
+| -0.000013 0.000000 0.000081 |
+Principal axes are :
+| 0.986119 -0.000004 0.166038 |
+| 0.000034 1.000000 -0.000179 |
+| -0.166038 0.000182 0.986119 |
+axis momenta are :
+| 0.000002 0.000083 0.000084 |
+Applied filter Compute Geometric Measures in 70 msec 
+
+
