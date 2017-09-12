@@ -7,6 +7,11 @@
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
 
+  <!-- remap topics to conform to ROS-I specifications -->
+  <remap from="/arm_controller/follow_joint_trajectory" to="/joint_trajectory_action" />
+  <remap from="/arm_controller/state" to="/feedback_states" />
+  <remap from="/arm_controller/command" to="/joint_path_command"/>
+
   <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find irb6640_gazebo)/worlds/testbed.world"/> 
@@ -24,4 +29,11 @@
   <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" 
     args="-urdf -model irb6640 -param robot_description"/>
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen">
+  </node>
+
+  <!-- init and start Gazebo ros_control interface -->
+  <include file="$(find irb6640_control)/launch/irb6640_control.launch"/>
 </launch>

@@ -11,7 +11,7 @@
   <arg name="robot_ip" />
   <arg name="J23_coupled" default="false" />
   
-  <rosparam command="load" file="$(find irb6640_moveit_config)/config/joint_names.yaml" />
+  <rosparam command="load" file="$(find abb_irb6640_support)/config/joint_names_irb6640_185_280.yaml" />
   
   <include file="$(find abb_driver)/launch/robot_interface.launch">
     <arg name="robot_ip"    value="$(arg robot_ip)" />

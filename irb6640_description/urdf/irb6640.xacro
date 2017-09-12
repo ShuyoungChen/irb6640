@@ -6,14 +6,6 @@
   <xacro:include filename="$(find irb6640_description)/urdf/irb6640.gazebo" />
   <xacro:include filename="$(find abb_resources)/urdf/common_materials.xacro"/>
      
-    <!-- Used for fixing robot to Gazebo ground -->
-    <link name="world"/>
-
-    <joint name="fixed" type="fixed">
-      <parent link="world"/>
-      <child link="base_link"/>
-    </joint>
-
     <!-- link list -->
     <link name="base_link">
       <collision name="collision">
@@ -348,12 +340,12 @@
    <!-- end of joint list -->
     
     <!-- ROS base_link to ABB World Coordinates transform -->
-<!--    <link name="base" />
+    <link name="base" />
     <joint name="base_link-base" type="fixed">
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <parent link="base_link"/>
       <child link="base"/>
-    </joint> -->
+    </joint>
 
    <!-- transmission list -->
    <transmission name="tran1">
@@ -362,7 +354,6 @@
        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
      </joint>
      <actuator name="motor1">
-       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
        <mechanicalReduction>1</mechanicalReduction>
      </actuator>
    </transmission>
@@ -373,7 +364,6 @@
        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
      </joint>
      <actuator name="motor2">
-       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
        <mechanicalReduction>1</mechanicalReduction>
      </actuator>
    </transmission>
@@ -384,7 +374,6 @@
        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
      </joint>
      <actuator name="motor3">
-       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
        <mechanicalReduction>1</mechanicalReduction>
      </actuator>
    </transmission>
@@ -395,7 +384,6 @@
        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
      </joint>
      <actuator name="motor4">
-       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
        <mechanicalReduction>1</mechanicalReduction>
      </actuator>
    </transmission>
@@ -406,7 +394,6 @@
        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
      </joint>
      <actuator name="motor5">
-       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
        <mechanicalReduction>1</mechanicalReduction>
      </actuator>
    </transmission>
@@ -417,9 +404,15 @@
        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
      </joint>
      <actuator name="motor6">
-       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
        <mechanicalReduction>1</mechanicalReduction>
      </actuator>
    </transmission>
   <!-- end of transmission list -->
+
+  <!-- Fix robot to Gazebo world -->
+  <link name="world"/>
+  <joint name="world-base_link-fixed" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
 </robot>
