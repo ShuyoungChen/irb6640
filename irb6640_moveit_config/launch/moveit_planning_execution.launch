@@ -55,4 +55,5 @@
     <arg name="moveit_warehouse_database_path" value="$(arg db_path)"/>
   </include>
 
+  <!--<node name="path_planning" pkg="path_planning" type="path_planning" respawn="false" output="screen" />-->
 </launch>
