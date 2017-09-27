@@ -1,6 +1,7 @@
 <launch>
 
-  <node name="path_planning" pkg="path_planning" type="path_planning" respawn="false" output="screen">
+  <node name="path_planning" pkg="path_planning" type="path_planning" respawn="false" output="screen" launch-prefix="xterm -e gdb --args">
   </node>
 
 </launch>
+

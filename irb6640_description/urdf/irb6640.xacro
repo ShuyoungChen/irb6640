@@ -177,6 +177,9 @@
 
     <link name="tool0"/>
     <link name="camera_link_optical"/>
+    <link name="world_camera_link_optical_1"/>
+    <link name="world_camera_link_optical_2"/>
+    <link name="world_camera_link_optical_3"/>
 
     <!--Cylinder and piston -->
     <link name="link_cylinder">
@@ -227,7 +230,7 @@
       </inertial>
     </link>
 
-    <!-- Camera -->
+    <!-- Camera on the wrist -->
     <link name="camera_link">
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -250,6 +253,77 @@
         <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
       </inertial>
     </link>
+
+    <!-- Cameras overhead -->
+    <link name="world_camera_1">
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+	  <box size="${camera_link} ${camera_link} ${camera_link}"/>
+        </geometry>
+      </collision>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+	<box size="${camera_link} ${camera_link} ${camera_link}"/>
+        </geometry>
+        <material name="red"/>
+      </visual>
+
+      <inertial>
+        <mass value="1e-5" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+      </inertial>
+    </link>
+
+    <link name="world_camera_2">
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+	  <box size="${camera_link} ${camera_link} ${camera_link}"/>
+        </geometry>
+      </collision>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+	<box size="${camera_link} ${camera_link} ${camera_link}"/>
+        </geometry>
+        <material name="blue"/>
+      </visual>
+
+      <inertial>
+        <mass value="1e-5" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+      </inertial>
+    </link>
+
+     <link name="world_camera_3">
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+	  <box size="${camera_link} ${camera_link} ${camera_link}"/>
+        </geometry>
+      </collision>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+	<box size="${camera_link} ${camera_link} ${camera_link}"/>
+        </geometry>
+        <material name="blue"/>
+      </visual>
+
+      <inertial>
+        <mass value="1e-5" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+      </inertial>
+    </link>
+
     <!-- end of link list -->
 
     <!-- joint list -->
@@ -330,6 +404,27 @@
      <child link="camera_link"/>
    </joint>
 
+   <joint name="world_camera_joint_1" type="fixed">
+     <axis xyz="0 1 0" />
+     <origin xyz="1 0 3" rpy="0 1.57 0"/>
+     <parent link="base_link"/>
+     <child link="world_camera_1"/>
+   </joint>
+
+   <joint name="world_camera_joint_2" type="fixed">
+     <axis xyz="0 1 0" />
+     <origin xyz="0 1 0" rpy="0 0 0"/>
+     <parent link="world_camera_1"/>
+     <child link="world_camera_2"/>
+   </joint>
+
+   <joint name="world_camera_joint_3" type="fixed">
+     <axis xyz="0 1 0" />
+     <origin xyz="0 -1 0" rpy="0 0 0"/>
+     <parent link="world_camera_1"/>
+     <child link="world_camera_3"/>
+   </joint>
+
    <joint name="camera_optical_joint" type="fixed">
      <!-- these values have to be these values otherwise the gazebo camera image
         won't be aligned properly with the frame it is supposedly originating from -->
@@ -337,6 +432,31 @@
      <parent link="camera_link"/>
      <child link="camera_link_optical"/>
    </joint>
+
+   <joint name="world_camera_optical_joint_1" type="fixed">
+     <!-- these values have to be these values otherwise the gazebo camera image
+        won't be aligned properly with the frame it is supposedly originating from -->
+     <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
+     <parent link="world_camera_1"/>
+     <child link="world_camera_link_optical_1"/>
+   </joint>
+  
+   <joint name="world_camera_optical_joint_2" type="fixed">
+     <!-- these values have to be these values otherwise the gazebo camera image
+        won't be aligned properly with the frame it is supposedly originating from -->
+     <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
+     <parent link="world_camera_2"/>
+     <child link="world_camera_link_optical_2"/>
+   </joint>
+
+   <joint name="world_camera_optical_joint_3" type="fixed">
+     <!-- these values have to be these values otherwise the gazebo camera image
+        won't be aligned properly with the frame it is supposedly originating from -->
+     <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
+     <parent link="world_camera_3"/>
+     <child link="world_camera_link_optical_3"/>
+   </joint>
+
    <!-- end of joint list -->
     
     <!-- ROS base_link to ABB World Coordinates transform -->
