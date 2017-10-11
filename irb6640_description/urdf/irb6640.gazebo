@@ -1,5 +1,16 @@
 <?xml version="1.0"?>
 <robot>
+
+  <!-- gazebo vacuum_gripper plugin >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+
+  <gazebo>
+      <plugin name="gazebo_ros_vacuum_gripper" filename="libgazebo_ros_vacuum_gripper.so">
+        <robotNamespace>/irb6640/vacuum_gripper</robotNamespace>
+        <bodyName>vacuum_gripper</bodyName>
+        <topicName>grasping</topicName>
+      </plugin>
+    </gazebo>
+
   <!-- ros_control plugin -->
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
@@ -238,4 +249,5 @@
       </plugin>
     </sensor>
   </gazebo>
+
 </robot>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.78.0 commit date:2017-02-24, commit time:14:33, hash:e92f235283</authoring_tool>
+    </contributor>
+    <created>2017-10-11T12:00:45</created>
+    <modified>2017-10-11T12:00:45</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images/>
+  <library_geometries>
+    <geometry id="module_4_1-mesh" name="module 4 1">
+      <mesh>
+        <source id="module_4_1-mesh-positions">
+          <float_array id="module_4_1-mesh-positions-array" count="24">1.016 -0.508 -0.002769947 -1.016 -0.508 -0.002769947 1.016 0.5080001 -0.002769947 -1.016 0.5080001 -0.002769947 -1.016 0.5080001 -2.30004e-4 -1.016 -0.508 -2.30004e-4 1.016 0.5080001 -2.30004e-4 1.016 -0.508 -2.30004e-4</float_array>
+          <technique_common>
+            <accessor source="#module_4_1-mesh-positions-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="module_4_1-mesh-normals">
+          <float_array id="module_4_1-mesh-normals-array" count="18">0 0 -1 -1 0 0 0 1 0 1 0 0 0 -1 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#module_4_1-mesh-normals-array" count="6" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="module_4_1-mesh-vertices">
+          <input semantic="POSITION" source="#module_4_1-mesh-positions"/>
+        </vertices>
+        <polylist count="12">
+          <input semantic="VERTEX" source="#module_4_1-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#module_4_1-mesh-normals" offset="1"/>
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>0 0 1 0 2 0 2 0 1 0 3 0 3 1 1 1 4 1 4 1 1 1 5 1 2 2 3 2 6 2 6 2 3 2 4 2 0 3 2 3 7 3 7 3 2 3 6 3 5 4 1 4 7 4 7 4 1 4 0 4 4 5 5 5 6 5 6 5 5 5 7 5</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers/>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="module_4_1" name="module_4_1" type="NODE">
+        <matrix sid="transform">0.9842519 0 0 0 0 0.9842519 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_geometry url="#module_4_1-mesh" name="module_4_1"/>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

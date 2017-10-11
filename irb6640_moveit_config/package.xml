@@ -5,8 +5,8 @@
   <description>
      An automatically generated package with all the configuration and launch files for using the irb6640 with the MoveIt! Motion Planning Framework
   </description>
-  <author email="shuyangchen01@gmail.com">Shuyang Chen</author>
-  <maintainer email="shuyangchen01@gmail.com">Shuyang Chen</maintainer>
+  <author email="shuyangchen01@gmail.com">Shuyang</author>
+  <maintainer email="shuyangchen01@gmail.com">Shuyang</maintainer>
 
   <license>BSD</license>
 

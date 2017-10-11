@@ -5,6 +5,6 @@ moveit_setup_assistant_config:
   SRDF:
     relative_path: config/irb6640.srdf
   CONFIG:
-    author_name: Shuyang Chen
+    author_name: Shuyang
     author_email: shuyangchen01@gmail.com
-    generated_timestamp: 1505254042
+    generated_timestamp: 1507740593

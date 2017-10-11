@@ -175,6 +175,28 @@
       </inertial>
     </link>
 
+    <link name="vacuum_gripper">
+      <gravity>0</gravity>
+      <collision name="collision">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://irb6640_gazebo/models/vacuum_gripper.dae" scale="0.3048 0.3048 0.3048"/>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://irb6640_gazebo/models/vacuum_gripper.dae" scale="0.3048 0.3048 0.3048"/>
+        </geometry>
+      </visual>
+      
+      <inertial>
+        <mass value="1"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+      </inertial>
+    </link>
+
     <link name="tool0"/>
     <link name="camera_link_optical"/>
     <link name="world_camera_link_optical_1"/>
@@ -375,10 +397,17 @@
       <limit effort="100" lower="-6.283" upper="6.283" velocity="3.3161"/>
    </joint>
 
-   <joint name="joint_6-tool0" type="fixed">
+   <joint name="joint_6_tool0" type="fixed">
      <parent link="link_6"/>
      <child link="tool0"/>
      <origin rpy="0 1.57079632679 0" xyz="0 0 0"/>
+   </joint>
+
+   <joint name="link_6_vacuum_gripper" type="revolute">
+     <parent link="link_6"/>
+     <child link="vacuum_gripper"/>
+     <origin rpy="0 -1.57079632679 0" xyz="0.295 0 0"/>
+     <limit effort="30" velocity="1.0" lower="0" upper="0" />
    </joint>
 
    <joint name="joint_cylinder" type="continuous">
@@ -399,28 +428,28 @@
 
    <joint name="camera_joint" type="fixed">
      <axis xyz="0 1 0" />
-     <origin xyz="${camera_link} 0 0" rpy="0 0 0"/>
+     <origin xyz="0.15 0 0" rpy="0 0 0"/>
      <parent link="link_6"/>
      <child link="camera_link"/>
    </joint>
 
    <joint name="world_camera_joint_1" type="fixed">
      <axis xyz="0 1 0" />
-     <origin xyz="1 0 3" rpy="0 1.57 0"/>
+     <origin xyz="0 0 2.6" rpy="0 1.57 0"/>
      <parent link="base_link"/>
      <child link="world_camera_1"/>
    </joint>
 
    <joint name="world_camera_joint_2" type="fixed">
      <axis xyz="0 1 0" />
-     <origin xyz="0 1 0" rpy="0 0 0"/>
+     <origin xyz="0 1.5 0" rpy="0 0 0"/>
      <parent link="world_camera_1"/>
      <child link="world_camera_2"/>
    </joint>
 
    <joint name="world_camera_joint_3" type="fixed">
      <axis xyz="0 1 0" />
-     <origin xyz="0 -1 0" rpy="0 0 0"/>
+     <origin xyz="0 -1.5 0" rpy="0 0 0"/>
      <parent link="world_camera_1"/>
      <child link="world_camera_3"/>
    </joint>
@@ -527,11 +556,22 @@
        <mechanicalReduction>1</mechanicalReduction>
      </actuator>
    </transmission>
+
+   <transmission name="tran7">
+     <type>transmission_interface/SimpleTransmission</type>
+     <joint name="link_6_vacuum_gripper">
+       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+     </joint>
+     <actuator name="motor7">
+       <mechanicalReduction>1</mechanicalReduction>
+     </actuator>
+   </transmission>
+  
   <!-- end of transmission list -->
 
   <!-- Fix robot to Gazebo world -->
   <link name="world"/>
-  <joint name="world-base_link-fixed" type="fixed">
+  <joint name="world_base_link-fixed" type="fixed">
     <parent link="world"/>
     <child link="base_link"/>
   </joint>

@@ -1,31 +1,101 @@
 <?xml version="1.0" ?>
-<sdf version="1.4">
-  <world name="testbed">
+<sdf version="1.5">
+  <world name="default">
     <include>
       <uri>model://sun</uri>
     </include>
     <include>
       <uri>model://ground_plane</uri>
     </include>
-<!--
+
+    <include> 
+      <uri>model://marker0</uri> 
+      <name>marker1</name> 
+      <pose>1.3 -1.05 0.1 0 1.57079632679 0</pose> 
+    </include>
+
+    <include> 
+      <uri>model://marker0</uri> 
+      <name>marker2</name> 
+      <pose>-0.7 1.5 0.2 0 1.57079632679 0</pose> 
+    </include>
+
+    <include> 
+      <uri>model://marker0</uri> 
+      <name>marker3</name> 
+      <pose>0.6 1.5 0.2 0 1.57079632679 0</pose> 
+    </include>
+
     <model name="testbed">
-      <pose>0 0 0 0 0 0</pose>
       <static>true</static>
       <link name="testbed">
-        <visual name="visual">
-          <pose>0 0 0 1.5708 0 0</pose>
+        <pose>4.4 4.5 0 0 0 0</pose>
+        <collision name="collision">
           <geometry>
-            <mesh><uri>model://irb6640_gazebo/models/vacuum_gripper.STL</uri></mesh>
+            <mesh>
+              <scale>0.3048 0.3048 0.3048</scale>
+              <uri>model://irb6640/irb6640_gazebo/models/testbed.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <scale>0.3048 0.3048 0.3048</scale>
+              <uri>model://irb6640/irb6640_gazebo/models/testbed.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model> 
+
+    <model name="panel1">
+      <pose>0 0 0 0 0 0</pose>
+      <static>true</static>
+      <link name="panel1">
+        <pose>2 -2 0.06 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://irb6640/irb6640_gazebo/models/panel2.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://irb6640/irb6640_gazebo/models/panel2.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model> 
+
+    <model name="panel2">
+      <pose>0 0 0 0 0 0</pose>
+      <static>true</static>
+      <link name="panel2">
+        <pose>2 -2 0.04 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://irb6640/irb6640_gazebo/models/panel2.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://irb6640/irb6640_gazebo/models/panel2.dae</uri>
+            </mesh>
           </geometry>
         </visual>
       </link>
     </model>
--->
-<!--    <gui fullscreen='0'>
-      <camera name='user_camera'>
-        <pose>4.927360 -4.376610 3.740080 0.000000 0.275643 2.356190</pose>
-        <view_controller>orbit</view_controller>
-      </camera>
-    </gui> -->
+
   </world>
 </sdf>
