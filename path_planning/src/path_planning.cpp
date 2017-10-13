@@ -79,9 +79,9 @@ void alvarCallback_2(boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> 
 	//pose.orientation.w = new_pose.getRotation().w(); 
 
 	pose.orientation.x = 0.0;
-	pose.orientation.y = 1.0;
-	pose.orientation.z = 0.0;
-	pose.orientation.w = 0.0; 
+	pose.orientation.y = 0.0;
+	pose.orientation.z = 0.707;
+	pose.orientation.w = -0.707; 
 }
 
 void alvarCallback_3(boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> msg) {   
@@ -126,8 +126,8 @@ void alvarCallback_3(boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> 
 	//pose.orientation.w = new_pose.getRotation().w(); 
 
 	pose.orientation.x = 0.0;
-	pose.orientation.y = 0.707;
-	pose.orientation.z = 0.0;
+	pose.orientation.y = 0.0;
+	pose.orientation.z = 0.707;
 	pose.orientation.w = -0.707; 
 }
 
@@ -266,19 +266,20 @@ int main(int argc, char **argv)
 	bool success = move_group.plan(my_plan);
 	ROS_INFO_NAMED("tutorial", "Visualizing plan 1 (pose goal) %s", success ? "" : "FAILED");
 	if (success) {
-		move_group.execute(my_plan);
-		std::cout << "executing..." << std::endl;
+        move_group.execute(my_plan);
+        std::cout << "moving to target 1..." << std::endl;
 	}
 	else
 		ROS_ERROR("Cannot find a plan.");
-
-	//ROS_INFO_NAMED("tutorial", "Visualizing plan 1 as trajectory line");
-	//visual_tools.publishAxisLabeled(pose, "pose1");
-
-	ros::Duration(2).sleep();
+    
+    char c;
+    std::cout << "input y and press Enter to do next plan..." << std::endl;
+    std::cin >> c;
+    std::cin.ignore(100, '\n');
+    
 
 	/*Plan two*/
-	move_group.clearPoseTargets();
+	move_group.clearPoseTarget("Manipulator");
 	boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> pt2;
 	while (!pt2) {
 		pt2 = ros::topic::waitForMessage<ar_track_alvar_msgs::AlvarMarkers>("/ar_pose_marker_2", ros::Duration(5));
@@ -293,19 +294,18 @@ int main(int argc, char **argv)
 	bool success_2 = move_group.plan(my_plan_2);
 	ROS_INFO_NAMED("tutorial", "Visualizing plan 2 (pose goal) %s", success_2 ? "" : "FAILED");
 	if (success_2) {
-		move_group.execute(my_plan_2);
-		std::cout << "executing..." << std::endl;
+        move_group.execute(my_plan_2);
+		std::cout << "moving to target 2..." << std::endl;
 	}
 	else
 		ROS_ERROR("Cannot find a plan.");
 
-	//ROS_INFO_NAMED("tutorial", "Visualizing plan 2 as trajectory line");
-	//visual_tools.publishAxisLabeled(pose, "pose2");
-
-	ros::Duration(2).sleep();
+    std::cout << "input y and press Enter to do next plan..." << std::endl;
+    std::cin >> c;
+    std::cin.ignore(100, '\n');
 
 	/*Plan three*/
-	move_group.clearPoseTargets();
+	move_group.clearPoseTarget("Manipulator");
 	boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> pt3;
 	while (!pt3) {
 		pt3 = ros::topic::waitForMessage<ar_track_alvar_msgs::AlvarMarkers>("/ar_pose_marker_3", ros::Duration(5));
@@ -320,19 +320,18 @@ int main(int argc, char **argv)
 	bool success_3 = move_group.plan(my_plan_3);
 	ROS_INFO_NAMED("tutorial", "Visualizing plan 3 (pose goal) %s", success_3 ? "" : "FAILED");
 	if (success_3) {
-		move_group.execute(my_plan_3);
-		std::cout << "executing..." << std::endl;
+        move_group.execute(my_plan_3);
+		std::cout << "moving to target 3..." << std::endl;
 	}
 	else
 		ROS_ERROR("Cannot find a plan.");
 
-	//ROS_INFO_NAMED("tutorial", "Visualizing plan 3 as trajectory line");
-	//visual_tools.publishAxisLabeled(pose, "pose3");
-
-	ros::Duration(2).sleep();
+    std::cout << "input y and press Enter to do next plan..." << std::endl;
+    std::cin >> c;
+    std::cin.ignore(100, '\n');
 
 	/*Plan four*/
-	move_group.clearPoseTargets();
+	move_group.clearPoseTarget("Manipulator");
 	boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> pt4;
 
 	while (!pt4) {
@@ -348,14 +347,11 @@ int main(int argc, char **argv)
 	bool success_4 = move_group.plan(my_plan_4);
 	ROS_INFO_NAMED("tutorial", "Visualizing plan 4 (pose goal) %s", success_4 ? "" : "FAILED");
 	if (success_4) {
-		move_group.execute(my_plan_4);
-		std::cout << "executing..." << std::endl;
+        move_group.execute(my_plan_4);
+		std::cout << "moving to target 4..." << std::endl;
 	}
 	else
 		ROS_ERROR("Cannot find a plan.");
-
-	//ROS_INFO_NAMED("tutorial", "Visualizing plan 4 as trajectory line");
-	//visual_tools.publishAxisLabeled(pose, "pose4");
 
 	ros::waitForShutdown();
 	return 0;
