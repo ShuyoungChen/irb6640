@@ -176,24 +176,24 @@
     </link>
 
     <link name="vacuum_gripper">
-      <gravity>0</gravity>
       <collision name="collision">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://irb6640_gazebo/models/vacuum_gripper.dae" scale="0.3048 0.3048 0.3048"/>
+          <mesh filename="package://irb6640_gazebo/models/vacuum_gripper.dae" scale="0.8 0.8 0.8"/>
         </geometry>
       </collision>
+
       <visual name="visual">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://irb6640_gazebo/models/vacuum_gripper.dae" scale="0.3048 0.3048 0.3048"/>
+          <mesh filename="package://irb6640_gazebo/models/vacuum_gripper.dae" scale="0.8 0.8 0.8"/>
         </geometry>
       </visual>
-      
+
       <inertial>
         <mass value="1"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+        <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
       </inertial>
     </link>
 
@@ -257,14 +257,14 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-	  <box size="${camera_link} ${camera_link} ${camera_link}"/>
+	      <box size="${camera_link} ${camera_link} ${camera_link}"/>
         </geometry>
       </collision>
 
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-	<box size="${camera_link} ${camera_link} ${camera_link}"/>
+	      <box size="${camera_link} ${camera_link} ${camera_link}"/>
         </geometry>
         <material name="red"/>
       </visual>
@@ -281,16 +281,15 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-	  <box size="${camera_link} ${camera_link} ${camera_link}"/>
+          <mesh filename="package://irb6640_gazebo/models/camera.dae" scale="0.5 0.5 0.5"/>
         </geometry>
       </collision>
 
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-	<box size="${camera_link} ${camera_link} ${camera_link}"/>
+	      <mesh filename="package://irb6640_gazebo/models/camera.dae" scale="0.5 0.5 0.5"/>
         </geometry>
-        <material name="red"/>
       </visual>
 
       <inertial>
@@ -304,16 +303,15 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-	  <box size="${camera_link} ${camera_link} ${camera_link}"/>
+	      <mesh filename="package://irb6640_gazebo/models/camera.dae" scale="0.5 0.5 0.5"/>
         </geometry>
       </collision>
 
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-	<box size="${camera_link} ${camera_link} ${camera_link}"/>
+	      <mesh filename="package://irb6640_gazebo/models/camera.dae" scale="0.5 0.5 0.5"/>
         </geometry>
-        <material name="blue"/>
       </visual>
 
       <inertial>
@@ -327,16 +325,15 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-	  <box size="${camera_link} ${camera_link} ${camera_link}"/>
+	      <mesh filename="package://irb6640_gazebo/models/camera.dae" scale="0.5 0.5 0.5"/>
         </geometry>
       </collision>
 
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-	<box size="${camera_link} ${camera_link} ${camera_link}"/>
+	      <mesh filename="package://irb6640_gazebo/models/camera.dae" scale="0.5 0.5 0.5"/>
         </geometry>
-        <material name="blue"/>
       </visual>
 
       <inertial>
@@ -395,98 +392,98 @@
       <parent link="link_5"/>
       <child link="link_6"/>
       <limit effort="100" lower="-6.283" upper="6.283" velocity="3.3161"/>
-   </joint>
+    </joint>
 
-   <joint name="joint_6_tool0" type="fixed">
-     <parent link="link_6"/>
-     <child link="tool0"/>
-     <origin rpy="0 1.57079632679 0" xyz="0 0 0"/>
-   </joint>
+    <joint name="joint_6_tool0" type="fixed">
+      <parent link="link_6"/>
+      <child link="tool0"/>
+      <origin rpy="0 1.57079632679 0" xyz="0 0 0"/>
+    </joint>
 
-   <joint name="link_6_vacuum_gripper" type="revolute">
-     <parent link="link_6"/>
-     <child link="vacuum_gripper"/>
-     <origin rpy="0 -1.57079632679 0" xyz="0.295 0 0"/>
-     <limit effort="30" velocity="1.0" lower="0" upper="0" />
-   </joint>
+    <joint name="link_6_vacuum_gripper" type="revolute">
+      <parent link="link_6"/>
+      <child link="vacuum_gripper"/>
+      <origin rpy="0 -1.57079632679 0" xyz="0.12 0 0"/>
+      <limit effort="30" velocity="1.0" lower="0" upper="0" />
+    </joint>
 
-   <joint name="joint_cylinder" type="continuous">
-     <origin rpy="0 0 0" xyz="-0.3647 0 -0.1455"/>
-     <axis xyz="0 1 0"/>
-     <parent link="link_1"/>
-     <child link="link_cylinder"/>
-     <mimic joint="joint_2" multiplier="-0.25"/>
-   </joint>
+    <joint name="joint_cylinder" type="continuous">
+      <origin rpy="0 0 0" xyz="-0.3647 0 -0.1455"/>
+      <axis xyz="0 1 0"/>
+      <parent link="link_1"/>
+      <child link="link_cylinder"/>
+      <mimic joint="joint_2" multiplier="-0.25"/>
+    </joint>
 
-   <joint name="joint_piston" type="continuous">
-     <origin rpy="0 0 0" xyz="-0.22 0 -0.0672"/>
-     <axis xyz="0 1 0"/>
-     <parent link="link_2"/>
-     <child link="link_piston"/>
-     <mimic joint="joint_2" multiplier="-1.25"/>
-   </joint>
+    <joint name="joint_piston" type="continuous">
+      <origin rpy="0 0 0" xyz="-0.22 0 -0.0672"/>
+      <axis xyz="0 1 0"/>
+      <parent link="link_2"/>
+      <child link="link_piston"/>
+      <mimic joint="joint_2" multiplier="-1.25"/>
+    </joint>
 
-   <joint name="camera_joint" type="fixed">
-     <axis xyz="0 1 0" />
-     <origin xyz="0.15 0 0" rpy="0 0 0"/>
-     <parent link="link_6"/>
-     <child link="camera_link"/>
-   </joint>
+    <joint name="camera_joint" type="fixed">
+      <axis xyz="0 1 0" />
+      <origin xyz="-0.15 0 0" rpy="0 0 0"/>
+      <parent link="link_6"/>
+      <child link="camera_link"/>
+    </joint>
 
-   <joint name="world_camera_joint_1" type="fixed">
-     <axis xyz="0 1 0" />
-     <origin xyz="0 0 2.6" rpy="0 1.57 0"/>
-     <parent link="base_link"/>
-     <child link="world_camera_1"/>
-   </joint>
+    <joint name="world_camera_joint_1" type="fixed">
+      <axis xyz="0 1 0" />
+      <origin xyz="0 0 2.5" rpy="0 1.57 0"/>
+      <parent link="base_link"/>
+      <child link="world_camera_1"/>
+    </joint>
 
-   <joint name="world_camera_joint_2" type="fixed">
-     <axis xyz="0 1 0" />
-     <origin xyz="0 1.5 0" rpy="0 0 0"/>
-     <parent link="world_camera_1"/>
-     <child link="world_camera_2"/>
-   </joint>
+    <joint name="world_camera_joint_2" type="fixed">
+      <axis xyz="0 1 0" />
+      <origin xyz="0 1.5 0" rpy="0 0 0"/>
+      <parent link="world_camera_1"/>
+      <child link="world_camera_2"/>
+    </joint>
 
-   <joint name="world_camera_joint_3" type="fixed">
-     <axis xyz="0 1 0" />
-     <origin xyz="0 -1.5 0" rpy="0 0 0"/>
-     <parent link="world_camera_1"/>
-     <child link="world_camera_3"/>
-   </joint>
+    <joint name="world_camera_joint_3" type="fixed">
+      <axis xyz="0 1 0" />
+      <origin xyz="0 -1.5 0" rpy="0 0 0"/>
+      <parent link="world_camera_1"/>
+      <child link="world_camera_3"/>
+    </joint>
 
-   <joint name="camera_optical_joint" type="fixed">
-     <!-- these values have to be these values otherwise the gazebo camera image
+    <joint name="camera_optical_joint" type="fixed">
+      <!-- these values have to be these values otherwise the gazebo camera image
         won't be aligned properly with the frame it is supposedly originating from -->
-     <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
-     <parent link="camera_link"/>
-     <child link="camera_link_optical"/>
-   </joint>
+      <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
+      <parent link="camera_link"/>
+      <child link="camera_link_optical"/>
+    </joint>
 
-   <joint name="world_camera_optical_joint_1" type="fixed">
-     <!-- these values have to be these values otherwise the gazebo camera image
+    <joint name="world_camera_optical_joint_1" type="fixed">
+      <!-- these values have to be these values otherwise the gazebo camera image
         won't be aligned properly with the frame it is supposedly originating from -->
-     <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
-     <parent link="world_camera_1"/>
-     <child link="world_camera_link_optical_1"/>
-   </joint>
+      <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
+      <parent link="world_camera_1"/>
+      <child link="world_camera_link_optical_1"/>
+    </joint>
   
-   <joint name="world_camera_optical_joint_2" type="fixed">
-     <!-- these values have to be these values otherwise the gazebo camera image
+    <joint name="world_camera_optical_joint_2" type="fixed">
+      <!-- these values have to be these values otherwise the gazebo camera image
         won't be aligned properly with the frame it is supposedly originating from -->
-     <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
-     <parent link="world_camera_2"/>
-     <child link="world_camera_link_optical_2"/>
-   </joint>
+      <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
+      <parent link="world_camera_2"/>
+      <child link="world_camera_link_optical_2"/>
+    </joint>
 
-   <joint name="world_camera_optical_joint_3" type="fixed">
-     <!-- these values have to be these values otherwise the gazebo camera image
+    <joint name="world_camera_optical_joint_3" type="fixed">
+      <!-- these values have to be these values otherwise the gazebo camera image
         won't be aligned properly with the frame it is supposedly originating from -->
-     <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
-     <parent link="world_camera_3"/>
-     <child link="world_camera_link_optical_3"/>
-   </joint>
+      <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
+      <parent link="world_camera_3"/>
+      <child link="world_camera_link_optical_3"/>
+    </joint>
 
-   <!-- end of joint list -->
+    <!-- end of joint list -->
     
     <!-- ROS base_link to ABB World Coordinates transform -->
     <link name="base" />
@@ -567,12 +564,13 @@
      </actuator>
    </transmission>
   
-  <!-- end of transmission list -->
+   <!-- end of transmission list -->
 
-  <!-- Fix robot to Gazebo world -->
-  <link name="world"/>
-  <joint name="world_base_link-fixed" type="fixed">
-    <parent link="world"/>
-    <child link="base_link"/>
-  </joint>
+   <!-- Fix robot to Gazebo world -->
+   <link name="world"/>
+
+   <joint name="world_base_link-fixed" type="fixed">
+     <parent link="world"/>
+     <child link="base_link"/>
+   </joint>
 </robot>

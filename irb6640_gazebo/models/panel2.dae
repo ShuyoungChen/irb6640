@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.78.0 commit date:2017-02-24, commit time:14:33, hash:e92f235283</authoring_tool>
     </contributor>
-    <created>2017-10-11T12:00:45</created>
-    <modified>2017-10-11T12:00:45</modified>
+    <created>2017-10-18T19:17:27</created>
+    <modified>2017-10-18T19:17:27</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -50,7 +50,7 @@
   <library_visual_scenes>
     <visual_scene id="Scene" name="Scene">
       <node id="module_4_1" name="module_4_1" type="NODE">
-        <matrix sid="transform">0.9842519 0 0 0 0 0.9842519 0 0 0 0 1 0 0 0 0 1</matrix>
+        <matrix sid="transform">0.9842519 0 0 0 0 0.9842519 0 0 0 0 19.68548 0 0 0 0 1</matrix>
         <instance_geometry url="#module_4_1-mesh" name="module_4_1"/>
       </node>
     </visual_scene>

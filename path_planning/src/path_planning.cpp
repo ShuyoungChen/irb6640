@@ -1,6 +1,7 @@
 #include <ros/ros.h>
 #include <ros/callback_queue.h>
 #include <ros/spinner.h>
+#include <std_srvs/Empty.h>
 #include <tf/transform_listener.h>
 #include <tf/transform_broadcaster.h>
 #include <ar_track_alvar_msgs/AlvarMarker.h>
@@ -54,7 +55,7 @@ void alvarCallback_2(boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> 
 				q_prim.y(),
 				q_prim.z(),
 				q_prim.w()));
-	tr.setOrigin(tf::Vector3(p.position.x, p.position.y, p.position.z-0.6));
+	tr.setOrigin(tf::Vector3(p.position.x, p.position.y, p.position.z-0.2));
 
 	if (abs(p.position.z - 0.6) < 0.05) 
 		attached = false;
@@ -84,11 +85,11 @@ void alvarCallback_2(boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> 
 	pose.orientation.w = -0.707; 
 }
 
-void alvarCallback_3(boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> msg) {   
+void alvarCallback_3(boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> msg, int marker_number) {   
 	ROS_INFO("Move to the target position to place the panel...");
 	geometry_msgs::Pose p;
 
-	p = msg->markers[0].pose.pose;
+	p = msg->markers[marker_number].pose.pose;
 
 	tf::TransformListener listener;
 	tf::StampedTransform transform;
@@ -104,7 +105,7 @@ void alvarCallback_3(boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> 
 				q_prim.y(),
 				q_prim.z(),
 				q_prim.w()));
-	tr.setOrigin(tf::Vector3(p.position.x, p.position.y, p.position.z-0.6));
+	tr.setOrigin(tf::Vector3(p.position.x, p.position.y - 0.73, p.position.z-0.02));
 
 	ros::Time now = ros::Time(0);
 	listener.waitForTransform("/base_link", "/world_camera_link_optical_3", now, ros::Duration(3.0));
@@ -251,13 +252,14 @@ int main(int argc, char **argv)
 
 	/*Plan one*/
 	boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> pt;
+
 	// subscribe the topic once and then shutdown
 	while (!pt) {
 		pt = ros::topic::waitForMessage<ar_track_alvar_msgs::AlvarMarkers>("/ar_pose_marker_3", ros::Duration(5));
 	}
 
 	if (!pt->markers.empty()) {
-		alvarCallback_3(pt);
+		alvarCallback_3(pt, 0);
 	}
 
 	//while (ros::ok()) {
@@ -266,21 +268,30 @@ int main(int argc, char **argv)
 	bool success = move_group.plan(my_plan);
 	ROS_INFO_NAMED("tutorial", "Visualizing plan 1 (pose goal) %s", success ? "" : "FAILED");
 	if (success) {
-        move_group.execute(my_plan);
-        std::cout << "moving to target 1..." << std::endl;
+		move_group.execute(my_plan);
+		std::cout << "moving to target 1..." << std::endl;
 	}
 	else
 		ROS_ERROR("Cannot find a plan.");
-    
-    char c;
-    std::cout << "input y and press Enter to do next plan..." << std::endl;
-    std::cin >> c;
-    std::cin.ignore(100, '\n');
-    
+
+	char c;
+	std::cout << "input y and press Enter to turn on the vacuum gripper..." << std::endl;
+	std::cin >> c;
+	std::cin.ignore(100, '\n');
+
+	ros::ServiceClient client = node_handle.serviceClient<std_srvs::Empty>("irb6640/vacuum_gripper/on");
+	ros::ServiceClient client_off = node_handle.serviceClient<std_srvs::Empty>("irb6640/vacuum_gripper/off");
+	std_srvs::Empty srv;
+	if (client.call(srv)) {
+		std::cout << "input y and press Enter to move to next target..." << std::endl;
+		std::cin >> c;
+		std::cin.ignore(100, '\n');
+	}
 
 	/*Plan two*/
 	move_group.clearPoseTarget("Manipulator");
 	boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> pt2;
+
 	while (!pt2) {
 		pt2 = ros::topic::waitForMessage<ar_track_alvar_msgs::AlvarMarkers>("/ar_pose_marker_2", ros::Duration(5));
 	}
@@ -294,25 +305,32 @@ int main(int argc, char **argv)
 	bool success_2 = move_group.plan(my_plan_2);
 	ROS_INFO_NAMED("tutorial", "Visualizing plan 2 (pose goal) %s", success_2 ? "" : "FAILED");
 	if (success_2) {
-        move_group.execute(my_plan_2);
+		move_group.execute(my_plan_2);
 		std::cout << "moving to target 2..." << std::endl;
 	}
 	else
 		ROS_ERROR("Cannot find a plan.");
 
-    std::cout << "input y and press Enter to do next plan..." << std::endl;
-    std::cin >> c;
-    std::cin.ignore(100, '\n');
+	std::cout << "input y and press Enter to turn off vacuum gripper..." << std::endl;
+	std::cin >> c;
+	std::cin.ignore(100, '\n');
+
+	if (client_off.call(srv)) {
+		std::cout << "input y and press Enter to move to next target..." << std::endl;
+		std::cin >> c;
+		std::cin.ignore(100, '\n');
+	} 
 
 	/*Plan three*/
 	move_group.clearPoseTarget("Manipulator");
 	boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> pt3;
+
 	while (!pt3) {
 		pt3 = ros::topic::waitForMessage<ar_track_alvar_msgs::AlvarMarkers>("/ar_pose_marker_3", ros::Duration(5));
 	}
 
 	if (!pt3->markers.empty()) {
-		alvarCallback_3(pt3);
+		alvarCallback_3(pt3, 1);
 	}
 
 	move_group.setPoseTarget(pose);  
@@ -320,15 +338,21 @@ int main(int argc, char **argv)
 	bool success_3 = move_group.plan(my_plan_3);
 	ROS_INFO_NAMED("tutorial", "Visualizing plan 3 (pose goal) %s", success_3 ? "" : "FAILED");
 	if (success_3) {
-        move_group.execute(my_plan_3);
+		move_group.execute(my_plan_3);
 		std::cout << "moving to target 3..." << std::endl;
 	}
 	else
 		ROS_ERROR("Cannot find a plan.");
 
-    std::cout << "input y and press Enter to do next plan..." << std::endl;
-    std::cin >> c;
-    std::cin.ignore(100, '\n');
+	std::cout << "input y and press Enter to turn on the vacuum gripper..." << std::endl;
+	std::cin >> c;
+	std::cin.ignore(100, '\n');
+
+	if (client.call(srv)) {
+		std::cout << "input y and press Enter to move to next target..." << std::endl;
+		std::cin >> c;
+		std::cin.ignore(100, '\n');
+	}
 
 	/*Plan four*/
 	move_group.clearPoseTarget("Manipulator");
@@ -347,19 +371,24 @@ int main(int argc, char **argv)
 	bool success_4 = move_group.plan(my_plan_4);
 	ROS_INFO_NAMED("tutorial", "Visualizing plan 4 (pose goal) %s", success_4 ? "" : "FAILED");
 	if (success_4) {
-        move_group.execute(my_plan_4);
+		move_group.execute(my_plan_4);
 		std::cout << "moving to target 4..." << std::endl;
 	}
 	else
 		ROS_ERROR("Cannot find a plan.");
 
+	std::cout << "input y and press Enter to turn off vacuum gripper..." << std::endl;
+	std::cin >> c;
+	std::cin.ignore(100, '\n');
+
+	if (client_off.call(srv)) {
+		std::cout << "input y and press Enter to move to next target..." << std::endl;
+		std::cin >> c;
+		std::cin.ignore(100, '\n');
+	} 
+
 	ros::waitForShutdown();
 	return 0;
 }
-
-
-
-
-
 
 
