@@ -17,7 +17,11 @@
           <contact_surface_layer>0.001000</contact_surface_layer>
         </constraints>
       </ode>
+<<<<<<< HEAD
       <real_time_update_rate>1000</real_time_update_rate>
+=======
+      <real_time_update_rate>100</real_time_update_rate>
+>>>>>>> 516c2a65f1240c5febd27d9c2197717ae096f07d
       <max_step_size>0.001000</max_step_size>
     </physics>
 
@@ -37,13 +41,13 @@
     <include> 
       <uri>model://marker0</uri> 
       <name>marker2</name> 
-      <pose>-0.776 1.615 0.2 0 1.57079632679 0</pose> 
+      <pose>-0.776 1.615 0.15 0 1.57079632679 0</pose> 
     </include>
 
     <include> 
       <uri>model://marker0</uri> 
       <name>marker3</name> 
-      <pose>0.929 1.615 0.2 0 1.57079632679 0</pose> 
+      <pose>0.929 1.615 0.15 0 1.57079632679 0</pose> 
     </include>
 
     <include> 
@@ -58,8 +62,7 @@
         <pose>4.60 4.60 0 0 0 0</pose>
         <collision name="collision">
           <geometry>
-            <mesh>
-              <scale>0.3048 0.3048 0.3048</scale>
+            <mesh>        
               <uri>model://irb6640/irb6640_gazebo/models/testbed.dae</uri>
             </mesh>
           </geometry>
@@ -67,7 +70,6 @@
         <visual name="visual">
           <geometry>
             <mesh>
-              <scale>0.3048 0.3048 0.3048</scale>
               <uri>model://irb6640/irb6640_gazebo/models/testbed.dae</uri>
             </mesh>
           </geometry>
@@ -86,14 +88,14 @@
       <link name="panel1">
         <pose>-0.52 -1.5 0.05 0 0 0</pose>
         <inertial>
-          <mass>0.01</mass>
+          <mass>0.003</mass>
           <inertia> 
-          <ixx>0.1</ixx>      
+          <ixx>1</ixx>      
           <ixy>0.0</ixy>         
           <ixz>0.0</ixz>         
-          <iyy>0.1</iyy>       
+          <iyy>1</iyy>       
           <iyz>0.0</iyz>         
-          <izz>0.1</izz>       
+          <izz>1</izz>       
           </inertia>
         </inertial>
         <collision name="collision">
@@ -107,8 +109,8 @@
           <surface>
             <friction>
               <ode>
-                <mu>100000</mu>
-                <mu2>100000</mu2>
+                <mu>1000000</mu>
+                <mu2>1000000</mu2>
                 <slip1>0.00</slip1>
                 <slip2>0.00</slip2>
               </ode>
@@ -167,8 +169,8 @@
           <surface>
             <friction>
               <ode>
-                <mu>1000000</mu>
-                <mu2>1000000</mu2>
+                <mu>10000000</mu>
+                <mu2>10000000</mu2>
                 <slip1>0.00</slip1>
                 <slip2>0.00</slip2>
               </ode>
