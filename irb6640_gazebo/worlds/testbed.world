@@ -17,11 +17,7 @@
           <contact_surface_layer>0.001000</contact_surface_layer>
         </constraints>
       </ode>
-<<<<<<< HEAD
-      <real_time_update_rate>1000</real_time_update_rate>
-=======
       <real_time_update_rate>100</real_time_update_rate>
->>>>>>> 516c2a65f1240c5febd27d9c2197717ae096f07d
       <max_step_size>0.001000</max_step_size>
     </physics>
 
@@ -50,11 +46,11 @@
       <pose>0.929 1.615 0.15 0 1.57079632679 0</pose> 
     </include>
 
-    <include> 
+    <!-- <include> 
       <uri>model://marker0</uri> 
       <name>marker4</name> 
       <pose>-1.50 -1.5 0.05 0 1.57079632679 0</pose> 
-    </include>
+    </include> -->
 
     <model name="testbed">
       <static>true</static>
@@ -83,7 +79,7 @@
       </link>
     </model> 
 
-    <model name="panel1">
+    <!-- <model name="panel1">
       <pose>0 0 0 0 0 0</pose>
       <link name="panel1">
         <pose>-0.52 -1.5 0.05 0 0 0</pose>
@@ -142,7 +138,7 @@
           </material>
         </visual>
       </link>
-    </model> 
+    </model> -->
 
     <model name="panel2">
       <pose>0 0 0 0 0 0</pose>
