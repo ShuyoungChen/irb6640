@@ -179,14 +179,14 @@
       <collision name="collision">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://irb6640_gazebo/models/vacuum_gripper.dae" scale="0.8 0.8 0.8"/>
+          <mesh filename="package://irb6640_gazebo/models/vacuum_gripper.dae" scale="0.9 0.9 0.9"/>
         </geometry>
       </collision>
 
       <visual name="visual">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://irb6640_gazebo/models/vacuum_gripper.dae" scale="0.8 0.8 0.8"/>
+          <mesh filename="package://irb6640_gazebo/models/vacuum_gripper.dae" scale="0.9 0.9 0.9"/>
         </geometry>
       </visual>
 

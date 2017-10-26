@@ -50,10 +50,11 @@
 
   <!-- vacuum gripper link -->
   <gazebo reference="vacuum_gripper">
-    <mu1>10000000</mu1>
-    <mu2>10000000</mu2>
-    <kp>10000000000</kp>
-    <kd>1</kd>
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <kp>1000000</kp>
+    <kd>0.1</kd>
+    <minDepth>0.001</minDepth>
     <material>Gazebo/Black</material>
   </gazebo>
 
@@ -268,6 +269,43 @@
         <focalLength>0.0</focalLength>
       </plugin>
     </sensor>
+  </gazebo>
+
+  <!-- Gazebo-specific joint properties -->
+  <gazebo reference="joint_1">
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="joint_2">
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="joint_3">
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="joint_4">
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="joint_5">
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="joint_6">
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="link_6_vacuum_gripper">
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="joint_cylinder">
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="joint_piston">
+    <implicitSpringDamper>1</implicitSpringDamper>
   </gazebo>
 
 </robot>

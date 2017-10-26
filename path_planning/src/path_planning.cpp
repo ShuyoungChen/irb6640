@@ -323,8 +323,8 @@ int main(int argc, char **argv)
 	collision_object1.operation = collision_object1.ADD;
 
 	box_pose2.orientation.w = 1.0;
-	box_pose2.position.x = 3.0;
-	box_pose2.position.y = -3.0;
+	box_pose2.position.x = -0.62;
+	box_pose2.position.y = -1.5;
 	box_pose2.position.z = 0.025;
 
 	collision_object2.primitives.push_back(primitive2);
@@ -335,7 +335,7 @@ int main(int argc, char **argv)
 
 	std::vector<moveit_msgs::CollisionObject> collision_objects;
 	collision_objects.push_back(collision_object1);
-	//collision_objects.push_back(collision_object2);
+	collision_objects.push_back(collision_object2);
 	collision_objects.push_back(collision_object3);
 
 	// Now, let's add the collision object into the world
@@ -348,8 +348,8 @@ int main(int argc, char **argv)
 
 	// Sleep to allow MoveGroup to recieve and process the collision object message
 	ros::Duration(1.0).sleep();
-	// Services to turn on/off the vacuum gripper
 
+	// Services to turn on/off the vacuum gripper
 	ros::ServiceClient client = node_handle.serviceClient<std_srvs::Empty>("irb6640/vacuum_gripper/on");
 	ros::ServiceClient client_off = node_handle.serviceClient<std_srvs::Empty>("irb6640/vacuum_gripper/off");
 	std_srvs::Empty srv;
@@ -368,7 +368,7 @@ int main(int argc, char **argv)
 	}
 
 	if (!pt->markers.empty()) {
-		alvarCallback_3(pt, 0);
+		alvarCallback_3(pt, 1);
 	}
 
 	//while (ros::ok()) {
@@ -417,16 +417,6 @@ int main(int argc, char **argv)
 		alvarCallback_2(pt2, 0);
 	}
 
-    pose.position.x = 0.929;
-	pose.position.y = 1.62;
-	pose.position.z = 0.4;
-
-	pose.orientation.x = 0.0;
-	pose.orientation.y = 0.0;
-	pose.orientation.z = 0.707;
-	pose.orientation.w = -0.707; 
-
-
 	move_group.setPoseTarget(pose);  
 	moveit::planning_interface::MoveGroupInterface::Plan my_plan_2;
 	bool success_2 = move_group.plan(my_plan_2);
@@ -443,7 +433,7 @@ int main(int argc, char **argv)
 	std::cin >> c;
 	std::cin.ignore(100, '\n');
 
-	pose.position.z = pose.position.z - 0.15;
+	pose.position.z = pose.position.z - 0.18;
 	move_group.setPoseTarget(pose);  
 	moveit::planning_interface::MoveGroupInterface::Plan my_plan_2_2;
 	bool success_2_2 = move_group.plan(my_plan_2_2);
@@ -530,7 +520,7 @@ int main(int argc, char **argv)
 	}
 
 	if (!pt4->markers.empty()) {
-		alvarCallback_2(pt4, 1);
+		alvarCallback_2(pt4, 0);
 	}
 
 	move_group.setPoseTarget(pose);  
@@ -585,5 +575,6 @@ int main(int argc, char **argv)
 	ros::waitForShutdown();
 	return 0;
 }
+
 
 
