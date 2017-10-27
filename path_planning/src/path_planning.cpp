@@ -56,9 +56,6 @@ moveit_msgs::CollisionObject addCollisionObject()
 	co.mesh_poses.push_back(co.mesh_poses[0]);
 	co.operation = co.ADD;
 	return co;
-
-	//std::vector<moveit_msgs::CollisionObject> vec;
-	//vec.push_back(co);
 }
 
 // Callback function for vision servo
@@ -77,7 +74,6 @@ moveit_msgs::CollisionObject addCollisionObject()
 
 void alvarCallback_2(boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> msg, int marker_number) {   
 	geometry_msgs::Pose p;
-
 	p = msg->markers[marker_number].pose.pose;
 	tf::TransformListener listener;
 	tf::StampedTransform transform;
@@ -86,7 +82,7 @@ void alvarCallback_2(boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> 
 	tf::Quaternion q_prim = tf::Quaternion(p.orientation.x,
 			p.orientation.y,
 			p.orientation.z,
-			p.orientation.w) * tf::Quaternion(1, 0, 0, 0) * tf::Quaternion(0, 0, -0.707, 0.707);
+			p.orientation.w);
 
 
 	tr.setRotation(tf::Quaternion(q_prim.x(),
@@ -112,15 +108,10 @@ void alvarCallback_2(boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> 
 	pose.position.y = new_pose.getOrigin().y();
 	pose.position.z = new_pose.getOrigin().z();
 
-	//pose.orientation.x = new_pose.getRotation().x();
-	//pose.orientation.y = new_pose.getRotation().y();
-	//pose.orientation.z = new_pose.getRotation().z();
-	//pose.orientation.w = new_pose.getRotation().w(); 
-
-	pose.orientation.x = 0.0;
-	pose.orientation.y = 0.0;
-	pose.orientation.z = 0.707;
-	pose.orientation.w = -0.707; 
+	pose.orientation.x = new_pose.getRotation().x();
+	pose.orientation.y = new_pose.getRotation().y();
+	pose.orientation.z = new_pose.getRotation().z();
+	pose.orientation.w = new_pose.getRotation().w(); 
 }
 
 void alvarCallback_3(boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> msg, int marker_number) {   
@@ -136,7 +127,7 @@ void alvarCallback_3(boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> 
 	tf::Quaternion q_prim = tf::Quaternion(p.orientation.x,
 			p.orientation.y,
 			p.orientation.z,
-			p.orientation.w) * tf::Quaternion(1, 0, 0, 0) * tf::Quaternion(-0.707, 0, 0.707, 0);
+			p.orientation.w);
 
 
 	tr.setRotation(tf::Quaternion(q_prim.x(),
@@ -159,15 +150,10 @@ void alvarCallback_3(boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> 
 	pose.position.y = new_pose.getOrigin().y();
 	pose.position.z = new_pose.getOrigin().z();
 
-	//pose.orientation.x = new_pose.getRotation().x();
-	//pose.orientation.y = new_pose.getRotation().y();
-	//pose.orientation.z = new_pose.getRotation().z();
-	//pose.orientation.w = new_pose.getRotation().w(); 
-
-	pose.orientation.x = 0.0;
-	pose.orientation.y = 0.0;
-	pose.orientation.z = 0.707;
-	pose.orientation.w = -0.707; 
+	pose.orientation.x = new_pose.getRotation().x();
+	pose.orientation.y = new_pose.getRotation().y();
+	pose.orientation.z = new_pose.getRotation().z();
+	pose.orientation.w = new_pose.getRotation().w(); 
 }
 
 void alvarCallback(const ar_track_alvar_msgs::AlvarMarkers::ConstPtr& msg) {   
@@ -433,7 +419,7 @@ int main(int argc, char **argv)
 	std::cin >> c;
 	std::cin.ignore(100, '\n');
 
-	pose.position.z = pose.position.z - 0.18;
+	pose.position.z = pose.position.z - 0.20;
 	move_group.setPoseTarget(pose);  
 	moveit::planning_interface::MoveGroupInterface::Plan my_plan_2_2;
 	bool success_2_2 = move_group.plan(my_plan_2_2);
@@ -520,7 +506,7 @@ int main(int argc, char **argv)
 	}
 
 	if (!pt4->markers.empty()) {
-		alvarCallback_2(pt4, 0);
+		alvarCallback_2(pt4, 1);
 	}
 
 	move_group.setPoseTarget(pose);  
@@ -539,7 +525,7 @@ int main(int argc, char **argv)
 	std::cin >> c;
 	std::cin.ignore(100, '\n');
 
-	pose.position.z = pose.position.z - 0.2;
+	pose.position.z = pose.position.z - 0.20;
 	move_group.setPoseTarget(pose);  
 	moveit::planning_interface::MoveGroupInterface::Plan my_plan_4_2;
 	bool success_4_2 = move_group.plan(my_plan_4_2);
@@ -575,6 +561,5 @@ int main(int argc, char **argv)
 	ros::waitForShutdown();
 	return 0;
 }
-
 
 
