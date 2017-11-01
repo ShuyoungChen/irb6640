@@ -1,8 +1,5 @@
 <?xml version="1.0" ?>
 <launch>
-  <!-- The planning and execution components of MoveIt! configured to run -->
-  <!-- using the ROS-Industrial interface. -->
- 
   <!-- Non-standard joint names:
        - Create a file [robot_moveit_config]/config/joint_names.yaml
            controller_joint_names: [joint_1, joint_2, ... joint_N] 
@@ -26,9 +23,10 @@
   </include>
 
   <!-- run the robot simulator and action interface nodes -->
-  <group if="$(arg sim)">
+  <!-- Note: this will cause action server joint_trajectory_action conflict -->
+  <!-- <group if="$(arg sim)">
     <include file="$(find industrial_robot_simulator)/launch/robot_interface_simulator.launch" />
-  </group>
+  </group> -->
 
   <!-- run the "real robot" interface nodes -->
   <!--   - this typically includes: robot_state, motion_interface, and joint_trajectory_action nodes -->
@@ -40,7 +38,7 @@
   </group>
 
   <!-- publish the robot state (tf transforms) -->
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" /> -->
 
   <include file="$(find irb6640_moveit_config)/launch/move_group.launch">
     <arg name="publish_monitored_planning_scene" value="true" />
@@ -54,6 +52,4 @@
   <include file="$(find irb6640_moveit_config)/launch/default_warehouse_db.launch" if="$(arg db)">
     <arg name="moveit_warehouse_database_path" value="$(arg db_path)"/>
   </include>
-
-  <!--<node name="path_planning" pkg="path_planning" type="path_planning" respawn="false" output="screen" />-->
 </launch>
