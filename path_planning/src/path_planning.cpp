@@ -89,7 +89,7 @@ void alvarCallback_2(boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> 
 				q_prim.y(),
 				q_prim.z(),
 				q_prim.w()));
-	tr.setOrigin(tf::Vector3(p.position.x, p.position.y, p.position.z - 0.3));
+	tr.setOrigin(tf::Vector3(p.position.x, p.position.y, p.position.z - 0.43));
 
 	if (abs(p.position.z - 0.6) < 0.05) 
 		attached = false;
@@ -108,10 +108,15 @@ void alvarCallback_2(boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> 
 	pose.position.y = new_pose.getOrigin().y();
 	pose.position.z = new_pose.getOrigin().z();
 
-	pose.orientation.x = new_pose.getRotation().x();
-	pose.orientation.y = new_pose.getRotation().y();
-	pose.orientation.z = new_pose.getRotation().z();
-	pose.orientation.w = new_pose.getRotation().w(); 
+	/*pose.orientation.x = new_pose.getRotation().x();
+	  pose.orientation.y = new_pose.getRotation().y();
+	  pose.orientation.z = new_pose.getRotation().z();
+	  pose.orientation.w = new_pose.getRotation().w();*/ 
+
+	pose.orientation.x = 0;
+	pose.orientation.y = 0.707;
+	pose.orientation.z = 0;
+	pose.orientation.w = 0.707;
 }
 
 void alvarCallback_3(boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> msg, int marker_number) {   
@@ -134,7 +139,7 @@ void alvarCallback_3(boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> 
 				q_prim.y(),
 				q_prim.z(),
 				q_prim.w()));
-	tr.setOrigin(tf::Vector3(p.position.x, p.position.y - 0.73, p.position.z-0.02));
+	tr.setOrigin(tf::Vector3(p.position.x, p.position.y - 0.73, p.position.z-0.15));
 
 	ros::Time now = ros::Time(0);
 	listener.waitForTransform("/base_link", "/world_camera_link_optical_3", now, ros::Duration(3.0));
@@ -150,10 +155,15 @@ void alvarCallback_3(boost::shared_ptr<ar_track_alvar_msgs::AlvarMarkers const> 
 	pose.position.y = new_pose.getOrigin().y();
 	pose.position.z = new_pose.getOrigin().z();
 
-	pose.orientation.x = new_pose.getRotation().x();
-	pose.orientation.y = new_pose.getRotation().y();
-	pose.orientation.z = new_pose.getRotation().z();
-	pose.orientation.w = new_pose.getRotation().w(); 
+	/*pose.orientation.x = new_pose.getRotation().x();
+	  pose.orientation.y = new_pose.getRotation().y();
+	  pose.orientation.z = new_pose.getRotation().z();
+	  pose.orientation.w = new_pose.getRotation().w(); */
+
+	pose.orientation.x = 0;
+	pose.orientation.y = 0.707;
+	pose.orientation.z = 0;
+	pose.orientation.w = 0.707;
 }
 
 void alvarCallback(const ar_track_alvar_msgs::AlvarMarkers::ConstPtr& msg) {   
@@ -244,6 +254,7 @@ int main(int argc, char **argv)
 
 	static const std::string PLANNING_GROUP = "Manipulator";
 	moveit::planning_interface::MoveGroupInterface move_group(PLANNING_GROUP);
+	move_group.setEndEffectorLink("link_6");
 	moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
 
 	// Raw pointers are frequently used to refer to the planning group for improved performance.
@@ -561,5 +572,7 @@ int main(int argc, char **argv)
 	ros::waitForShutdown();
 	return 0;
 }
+
+
 
 

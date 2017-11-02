@@ -572,11 +572,9 @@
    </transmission>
   
    <!-- end of transmission list -->
-
-   <!-- Fix robot to Gazebo world -->
+   <!-- dummy link to remove warning -->
    <link name="world"/>
-
-   <joint name="world_base_link-fixed" type="fixed">
+   <joint name="world-base_link-fixed" type="fixed">
      <parent link="world"/>
      <child link="base_link"/>
    </joint>
