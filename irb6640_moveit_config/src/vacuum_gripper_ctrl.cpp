@@ -34,9 +34,3 @@ int main(int argc, char** argv) {
 	sub = nh.subscribe<sensor_msgs::Joy>("/joy", 1000, &Vacuum_gripper::joyCallback, &v);
 	ros::spin();
 }
-
-
-
-
-
-
