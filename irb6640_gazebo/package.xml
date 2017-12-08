@@ -10,4 +10,6 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
+  <run_depend>abb_resources</run_depend>
+
 </package>
