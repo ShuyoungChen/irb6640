@@ -59,7 +59,7 @@
         <collision name="collision">
           <geometry>
             <mesh>        
-              <uri>model://irb6640/irb6640_gazebo/models/testbed.dae</uri>
+              <uri>model://irb6640/irb6640_gazebo/models/testbed.stl</uri>
             </mesh>
           </geometry>
         </collision>
@@ -99,7 +99,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://irb6640/irb6640_gazebo/models/panel2.dae</uri>
+              <uri>model://irb6640/irb6640_gazebo/models/panel2.stl</uri>
             </mesh>
           </geometry>
           <surface>
@@ -159,7 +159,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://irb6640/irb6640_gazebo/models/panel2.dae</uri>
+              <uri>model://irb6640/irb6640_gazebo/models/panel2.stl</uri>
             </mesh>
           </geometry>
           <surface>
