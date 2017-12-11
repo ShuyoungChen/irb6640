@@ -11,5 +11,7 @@
   <buildtool_depend>catkin</buildtool_depend>
 
   <run_depend>abb_resources</run_depend>
+  <run_depend>gazebo_ros_control</run_depend>
+  <run_depend>gazebo</run_depend>
 
 </package>
