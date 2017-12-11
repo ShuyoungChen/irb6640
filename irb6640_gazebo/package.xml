@@ -13,5 +13,9 @@
   <run_depend>abb_resources</run_depend>
   <run_depend>gazebo_ros_control</run_depend>
   <run_depend>gazebo</run_depend>
+  <run_depend>joint_state_controller</run_depend>
+  <run_depend>joint_trajectory_controller</run_depend>
+  <run_depend>effort_controllers</run_depend>
+  <run_depend>position_controllers</run_depend>
 
 </package>
