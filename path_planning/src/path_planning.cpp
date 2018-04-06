@@ -371,7 +371,7 @@ int main(int argc, char **argv)
 	//while (ros::ok()) {
 	move_group.setPoseTarget(pose);  
 	moveit::planning_interface::MoveGroupInterface::Plan my_plan;
-	bool success = move_group.plan(my_plan);
+	moveit::planning_interface::MoveItErrorCode success = move_group.plan(my_plan);
 	ROS_INFO_NAMED("tutorial", "Visualizing plan 1 (pose goal) %s", success ? "" : "FAILED");
 
 	if (success) {
@@ -416,7 +416,7 @@ int main(int argc, char **argv)
 
 	move_group.setPoseTarget(pose);  
 	moveit::planning_interface::MoveGroupInterface::Plan my_plan_2;
-	bool success_2 = move_group.plan(my_plan_2);
+	moveit::planning_interface::MoveItErrorCode success_2 = move_group.plan(my_plan_2);
 	ROS_INFO_NAMED("tutorial", "Visualizing plan 2 (pose goal) %s", success_2 ? "" : "FAILED");
 
 	if (success_2) {
@@ -433,7 +433,7 @@ int main(int argc, char **argv)
 	pose.position.z = pose.position.z - 0.20;
 	move_group.setPoseTarget(pose);  
 	moveit::planning_interface::MoveGroupInterface::Plan my_plan_2_2;
-	bool success_2_2 = move_group.plan(my_plan_2_2);
+	moveit::planning_interface::MoveItErrorCode success_2_2 = move_group.plan(my_plan_2_2);
 	ROS_INFO_NAMED("tutorial", "Visualizing plan 2_2 (pose goal) %s", success_2_2 ? "" : "FAILED");
 
 	if (success_2_2) {
@@ -478,7 +478,7 @@ int main(int argc, char **argv)
 
 	move_group.setPoseTarget(pose);  
 	moveit::planning_interface::MoveGroupInterface::Plan my_plan_3;
-	bool success_3 = move_group.plan(my_plan_3);
+	moveit::planning_interface::MoveItErrorCode success_3 = move_group.plan(my_plan_3);
 	ROS_INFO_NAMED("tutorial", "Visualizing plan 3 (pose goal) %s", success_3 ? "" : "FAILED");
 
 	if (success_3) {
@@ -522,7 +522,7 @@ int main(int argc, char **argv)
 
 	move_group.setPoseTarget(pose);  
 	moveit::planning_interface::MoveGroupInterface::Plan my_plan_4;
-	bool success_4 = move_group.plan(my_plan_4);
+	moveit::planning_interface::MoveItErrorCode success_4 = move_group.plan(my_plan_4);
 	ROS_INFO_NAMED("tutorial", "Visualizing plan 4 (pose goal) %s", success_4 ? "" : "FAILED");
 
 	if (success_4) {
@@ -539,7 +539,7 @@ int main(int argc, char **argv)
 	pose.position.z = pose.position.z - 0.20;
 	move_group.setPoseTarget(pose);  
 	moveit::planning_interface::MoveGroupInterface::Plan my_plan_4_2;
-	bool success_4_2 = move_group.plan(my_plan_4_2);
+	moveit::planning_interface::MoveItErrorCode success_4_2 = move_group.plan(my_plan_4_2);
 	ROS_INFO_NAMED("tutorial", "Visualizing plan 4_2 (pose goal) %s", success_4_2 ? "" : "FAILED");
 
 	if (success_4_2) {
